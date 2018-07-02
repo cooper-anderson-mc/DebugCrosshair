@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 
 public class DCEventHandler {
 	@SubscribeEvent
@@ -24,6 +25,14 @@ public class DCEventHandler {
 			DebugCrosshair.renderAxes();
 			GlStateManager.popMatrix();
 			event.setCanceled(true);
+		}
+	}
+
+	@SubscribeEvent
+	public void onKeyInput(InputEvent.KeyInputEvent event) {
+		if (DebugCrosshair.toggleKey.isPressed()) {
+			DCConfig.enabled = !DCConfig.enabled;
+			DCConfig.saveConfig();
 		}
 	}
 }

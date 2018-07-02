@@ -6,6 +6,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.settings.GameSettings;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -14,17 +16,19 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 @Mod(modid = DebugCrosshair.MODID, name = DebugCrosshair.NAME, version = DebugCrosshair.VERSION)
 public class DebugCrosshair {
     public static final String MODID = "debugcrosshair";
     public static final String NAME = "Debug Crosshair";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.1";
 
     protected static Logger logger;
     protected static Minecraft mc;
     protected static GameSettings gameSettings;
+    protected static KeyBinding toggleKey;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -36,6 +40,8 @@ public class DebugCrosshair {
     public void initClient(FMLInitializationEvent event) {
         mc = Minecraft.getMinecraft();
         gameSettings = mc.gameSettings;
+        toggleKey = new KeyBinding("debugcrosshair:keybind.toggle", Keyboard.KEY_BACK, "debugcrosshair:category.debugcrosshair");
+        ClientRegistry.registerKeyBinding(toggleKey);
     }
 
     @EventHandler
