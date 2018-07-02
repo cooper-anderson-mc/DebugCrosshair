@@ -8,8 +8,11 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 
@@ -26,11 +29,23 @@ public class DebugCrosshair {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+    }
+
+    @EventHandler
+    @SideOnly(value = Side.CLIENT)
+    public void initClient(FMLInitializationEvent event) {
         mc = Minecraft.getMinecraft();
         gameSettings = mc.gameSettings;
     }
 
     @EventHandler
+    @SideOnly(value = Side.SERVER)
+    public void initServer(FMLInitializationEvent event) {
+        logger.warn("DebugCrosshair found in server! DebugCrosshair is a clientside mod and will do nothing on a server.");
+    }
+
+    @EventHandler
+    @SideOnly(value = Side.CLIENT)
     public void postInit(FMLPostInitializationEvent event) {
         net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(new DCEventHandler());
     }
