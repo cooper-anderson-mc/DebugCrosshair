@@ -26,7 +26,7 @@ public class DCConfig {
 		public static Axis yAxis = new Axis(new Color(0, 255, 0, 255), 10.0);
 		@Config.Name("Z Axis")
 		@Config.Comment("Render options for the Z axis")
-		public static Axis zAxis = new Axis(new Color(0, 0, 255, 255), 10.0);
+		public static Axis zAxis = new Axis(new Color(127, 127, 255, 255), 10.0);
 		@Config.RangeInt(min=0, max=255)
 		public static int opacity = 255;
 		@Config.Comment("Scale the entire model")
