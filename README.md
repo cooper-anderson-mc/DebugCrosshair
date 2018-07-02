@@ -1,4 +1,4 @@
-# DebugCrosshair
+# DebugCrosshair [![CircleCI](https://circleci.com/gh/cooper-anderson-mc/DebugCrosshair.svg?style=shield)](https://circleci.com/gh/cooper-anderson-mc/DebugCrosshair) [![CurseForge](http://cf.way2muchnoise.eu/full_debugcrosshair_downloads.svg)](https://minecraft.curseforge.com/projects/debugcrosshair)
 DebugCrosshair is a mid for Minecraft `1.12.2+`. It forces the F3-screen crosshairs to render even when the F3-screen is not active.
 
 In the config screen of the mod you can:
