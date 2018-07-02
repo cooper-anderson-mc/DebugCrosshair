@@ -20,17 +20,17 @@ public class DCConfig {
 	public static final class RenderOptions {
 		@Config.Name("X Axis")
 		@Config.Comment("Render options for the X axis")
-		public static Axis xAxis = new Axis(new Color(255, 0, 0, 255), 10);
+		public static Axis xAxis = new Axis(new Color(255, 0, 0, 255), 10.0);
 		@Config.Name("Y Axis")
 		@Config.Comment("Render options for the Y axis")
-		public static Axis yAxis = new Axis(new Color(0, 255, 0, 255), 10);
+		public static Axis yAxis = new Axis(new Color(0, 255, 0, 255), 10.0);
 		@Config.Name("Z Axis")
 		@Config.Comment("Render options for the Z axis")
-		public static Axis zAxis = new Axis(new Color(0, 0, 255, 255), 10);
+		public static Axis zAxis = new Axis(new Color(0, 0, 255, 255), 10.0);
 		@Config.RangeInt(min=0, max=255)
 		public static int opacity = 255;
 		@Config.Comment("Scale the entire model")
-		public static int scale = 1;
+		public static double scale = 1.0;
 
 		public static final class Axis {
 			@Config.Comment("Color of the axis")
@@ -38,9 +38,9 @@ public class DCConfig {
 			@Config.Comment("Outline color of the axis")
 			public Color outline;
 			@Config.Comment("Length of the axis")
-			public int length;
+			public double length;
 
-			public Axis(Color color, int length) {
+			public Axis(Color color, double length) {
 				this.color = color;
 				this.outline = new Color(0, 0, 0, 255);
 				this.length = length;
