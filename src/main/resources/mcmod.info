@@ -1,0 +1,16 @@
+[
+{
+  "modid": "debugcrosshair",
+  "name": "Debug Crosshair",
+  "description": "Example placeholder mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["titanknox"],
+  "credits": "Created by Cooper Anderson (cooper-anderson)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
