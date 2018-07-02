@@ -31,6 +31,11 @@ public class DCConfig {
 		public static int opacity = 255;
 		@Config.Comment("Scale the entire model")
 		public static double scale = 1.0;
+		@Config.Comment("Thickness of the axes")
+		public static double thickness = 2.0;
+		@Config.Name("thickness outline")
+		@Config.Comment("Thickness of the axes' outlines")
+		public static double thicknessOutline = 4.0;
 
 		public static final class Axis {
 			@Config.Comment("Color of the axis")
